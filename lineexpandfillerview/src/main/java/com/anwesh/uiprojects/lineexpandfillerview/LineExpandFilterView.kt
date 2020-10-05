@@ -5,6 +5,7 @@ package com.anwesh.uiprojects.lineexpandfillerview
  */
 
 import android.view.View
+import android.view.MotionEvent
 import android.content.Context
 import android.app.Activity
 import android.graphics.Paint
@@ -59,4 +60,20 @@ fun Canvas.drawLEFNode(i : Int, scale : Float, paint : Paint) {
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     drawLineExpandFiller(scale, w, h, paint)
+}
+
+class LineExpandFilterView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
 }
