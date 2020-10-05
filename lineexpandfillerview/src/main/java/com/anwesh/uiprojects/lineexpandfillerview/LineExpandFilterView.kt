@@ -212,4 +212,13 @@ class LineExpandFilterView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : LineExpandFilterView {
+            val view : LineExpandFilterView = LineExpandFilterView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
