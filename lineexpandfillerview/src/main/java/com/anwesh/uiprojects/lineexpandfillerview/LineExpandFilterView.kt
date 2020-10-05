@@ -36,7 +36,7 @@ fun Int.iaf() : Float = 1f - 2 * (this % 2)
 fun Canvas.drawLineExpandFiller(scale : Float, w : Float, h : Float, paint : Paint) {
     val sf : Float = scale.sinify()
     for (j in 0..2) {
-        val ij : Int = j / 2
+        val ij : Int = (j + 1) / 2
         val sfj : Float = sf.divideScale(ij, parts)
         val y : Float = h * 0.5f * ij
         val finalY : Float = y + h * 0.5f * sfj
