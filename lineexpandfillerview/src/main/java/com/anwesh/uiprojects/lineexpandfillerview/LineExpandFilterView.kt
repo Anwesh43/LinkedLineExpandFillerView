@@ -189,4 +189,27 @@ class LineExpandFilterView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineExpandFilterView) {
+
+        private val animator : Animator = Animator(view)
+        private val lef : LineExpandFiller = LineExpandFiller(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lef.draw(canvas, paint)
+            animator.animate {
+                lef.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lef.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
